@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/alizmhdi/shield/internal/config"
+	"github.com/alizmhdi/shield/config"
 	"github.com/alizmhdi/shield/internal/k8s"
 	v1 "k8s.io/api/networking/v1"
 )

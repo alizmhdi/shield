@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/alizmhdi/shield/internal/config"
+	"github.com/alizmhdi/shield/config"
 	"github.com/alizmhdi/shield/internal/core"
 	"github.com/alizmhdi/shield/internal/k8s"
 	"github.com/spf13/cobra"
