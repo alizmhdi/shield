@@ -1,0 +1,39 @@
+# Binaries
+shield
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Output directories
+bin/
+
+# Go build cache
+*.test
+
+# Dependency directories (vendor/)
+vendor/
+
+# Go modules
+/go.sum
+
+# IDE/editor files
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+
+# Helm chart output
+shield-chart/charts/
+shield-chart/tmp/
+
+# Docker
+*.tar
+
+# Logs
+*.log
+
+# Config overrides
+config/config.yaml
