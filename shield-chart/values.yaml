@@ -1,0 +1,25 @@
+image:
+  repository: your-dockerhub-username/shield
+  tag: latest
+  pullPolicy: IfNotPresent
+
+schedule: "0 * * * *"
+
+namespace: default
+
+config: |
+  whitelists:
+    ips:
+      - "192.168.1.100"
+      - "10.0.0.0/24"
+      - "203.0.113.42"
+  ingressAssignments:
+  - name: my-app-ingress
+    namespace: default
+    whitelist: office
+
+resources: {}
+
+serviceAccount:
+  create: true
+  name: ""

@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "shield.fullname" . }}
+  namespace: {{ .Values.namespace }}
+spec:
+  schedule: "{{ .Values.schedule }}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ include "shield.serviceAccountName" . }}
+          containers:
+            - name: shield
+              image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              args:
+                - run
+                - --config
+                - /etc/shield/config.yaml
+              volumeMounts:
+                - name: config
+                  mountPath: /etc/shield
+          restartPolicy: OnFailure
+          volumes:
+            - name: config
+              configMap:
+                name: {{ include "shield.fullname" . }}-config
